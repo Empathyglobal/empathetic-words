@@ -27,6 +27,7 @@ async function noOverflow(page) {
 }
 async function chooseToy(page) {
   await page.getByRole('button', { name: 'Choose a story', exact: true }).click();
+  await expect(page.getByRole('button').filter({ has: page.getByRole('heading', { level: 3 }) })).toHaveCount(37);
   await page.getByRole('button', { name: /The Borrowed Toy/ }).click();
   await expect(page.getByRole('heading', { name: 'The Borrowed Toy' })).toBeVisible();
 }

@@ -20,7 +20,7 @@ Development history records a release-QA request and an AI response describing s
 
 Prepared the Empathetic Words source preview from the existing app. The interface retains the Kind Words Builder title.
 
-- Preserved the 33 scenario library, four-step play, reflection cards, session progress, and available badges.
+- Preserved the 37 scenario library, four-step play, reflection cards, session progress, and available badges.
 - Removed Base44 authentication, OAuth, SDK integration, page tracking, identifiers, external branding, and unused template code.
 - Added standalone build configuration, lockfile, MIT license, third-party notices, documentation, and build/test CI.
 - Corrected expansion filtering and category-preserving random replay, invalid-story hook ordering, empty-category random starts, and unreachable category badges.
@@ -28,4 +28,8 @@ Prepared the Empathetic Words source preview from the existing app. The interfac
 - Added 54 automated tests, including complete play and same-story replay for every scenario.
 - Production build passed; dependency audit reported no known vulnerabilities at preparation time.
 
-The original Base44 app was not edited or deployed during this preparation. Real-browser/mobile layout, actual device audio, and assistive-technology QA remain pending. No psychological or educational-outcome validation is claimed. See [VALIDATION.md](VALIDATION.md) for the verification scope.
+The original Base44 app was not edited or deployed during this preparation. At that point, real-browser/mobile layout, actual device audio, and assistive-technology QA remained pending. No psychological or educational-outcome validation is claimed. See [VALIDATION.md](VALIDATION.md) for the verification scope.
+
+## 6 November 2026: Hosted browser smoke verification
+
+Added a pinned Playwright test-only package and GitHub Actions workflow. Eight desktop/mobile-emulated Chromium smoke checks passed, alongside the existing 54 simulated-DOM tests and production build. Corrected the documented scenario count from 33 to 37 after checking the source arrays. No deployment or application behavior changes were made. Actual device audio and comprehensive visual/accessibility review remain outside this verification. See [VALIDATION.md](VALIDATION.md) for linked evidence and scope.

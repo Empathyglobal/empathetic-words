@@ -1,10 +1,10 @@
 # Empathetic Words
 
-**Source preview:** this is a tested source package, not a deployed or production-verified release. Real-browser, mobile layout, and actual audio QA are still pending.
+**Source preview:** this is a tested source package, not a deployed or production-verified release. Desktop and mobile-emulated Chromium smoke tests pass; actual device audio and broader visual/accessibility QA remain pending.
 
 **Kind Words Builder**, a standalone communication-skills practice game by Eric Gonzalez-Payne.
 
-Choose a short fictional situation and build a considerate response in four steps: observation, feeling, need, and request. Includes 33 stories, category filters, optional reflection word cards, in-session progress and badges, and optional on-device English narration.
+Choose a short fictional situation and build a considerate response in four steps: observation, feeling, need, and request. Includes 37 stories, category filters, optional reflection word cards, in-session progress and badges, and optional on-device English narration.
 
 ## Run locally
 
@@ -25,6 +25,20 @@ npm run preview
 
 The production output is `dist/`. Serve it with an HTTP static file server. Relative asset URLs support hosting in a subdirectory. No service worker is included; this is not an installable offline PWA.
 
+## Browser smoke tests
+
+The separate test-only package pins Playwright 1.56.1 and uses Chromium against the production build. On a supported system:
+
+```sh
+npm run build
+npm ci --prefix browser
+cd browser
+npx playwright install --with-deps chromium
+npm test
+```
+
+CI uses Ubuntu 24.04. Mobile coverage is Pixel 7 emulation, not a physical phone. Speech APIs are stubbed for deterministic local/remote voice control checks; actual sound is not tested.
+
 ## Privacy and safety
 
 - No login, analytics, advertising, tracking pixels, external images, or application API calls.
@@ -40,7 +54,7 @@ Stories currently have School, Home, and Me metadata. Other category filters hav
 
 ## Verification
 
-Automated tests cover every story's four-step completion and same-story replay, data integrity, category filters, random replay, progress/badges, interrupted play, session reset, help dialogs and focus handling, and local-only speech behavior. Production build and dependency audit are also checked. See [VALIDATION.md](VALIDATION.md) for the actual verification record and limitations. Real-browser, mobile layout, and real audio QA are not claimed.
+Automated tests cover every story's four-step completion and same-story replay, data integrity, category filters, random replay, progress/badges, interrupted play, session reset, help dialogs and focus handling, and local-only speech behavior. Production build and dependency audit are also checked. See [VALIDATION.md](VALIDATION.md) for the actual verification record and limitations. Eight browser smoke checks also pass across desktop and mobile-emulated Chromium. Actual device audio, screen-reader compatibility, and exhaustive visual QA are not claimed.
 
 ## License and attribution
 
