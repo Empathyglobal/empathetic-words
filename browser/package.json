@@ -1,0 +1,13 @@
+{
+  "name": "empathetic-words-browser-tests",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}
