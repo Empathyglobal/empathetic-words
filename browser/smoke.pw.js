@@ -58,7 +58,7 @@ test('complete four steps, retry, replay, progress and reload reset', async ({ p
   await expect(page.getByRole('heading', { name: 'The Borrowed Toy' })).toBeVisible();
   await finishToy(page);
   await page.getByRole('button', { name: 'Home', exact: true }).click();
-  await expect(page.getByText('1 of 33 stories completed', { exact: true })).toBeVisible();
+  await expect(page.getByText('1 of 37 stories completed', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Progress', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Your Progress' })).toBeVisible();
   await noOverflow(page);
